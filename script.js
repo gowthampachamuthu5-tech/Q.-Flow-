@@ -1,4 +1,16 @@
-let currentPosition = 4;
+// ==============================
+// CHANGE PLACE
+// ==============================
+
+const placeName = "Madurai";
+
+document.addEventListener("DOMContentLoaded", () => {
+    const placeElements = document.querySelectorAll(".place-name");
+
+    placeElements.forEach((element) => {
+        element.textContent = placeName;
+    });
+});let currentPosition = 4;
 let ticketCounter = 104;
 
 
