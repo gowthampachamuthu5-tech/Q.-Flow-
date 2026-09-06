@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QFlow - Digital Queue System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="#"><span class="logo-mark">Q</span><span>QFlow</span></a>
+    <div class="nav-links">
+      <a href="#features">Features</a><a href="#how">How It Works</a><a href="#solutions">Solutions</a><a href="#pricing">Pricing</a>
+    </div>
+    <div class="nav-actions"><button class="btn btn-ghost" onclick="login()">Login</button><button class="btn btn-primary" onclick="joinQueue()">Get Started</button></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-copy">
+    <div class="badge">✦ Smart Digital Queue Management</div>
+    <h1>Stop Waiting.<br><span>Start Flowing.</span></h1>
+    <p>QFlow lets customers join a queue digitally, track their position in real time, and get notified when it's their turn.</p>
+    <div class="hero-actions"><button class="btn btn-primary btn-lg" onclick="joinQueue()">Start Free →</button><a class="btn btn-outline btn-lg" href="#how">See How It Works</a></div>
+    <div class="trust"><span>✓ No hardware required</span><span>✓ Real-time tracking</span><span>✓ Smart notifications</span></div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="glow"></div>
+    <div class="queue-card">
+      <div class="queue-head"><div><small>LIVE NOW</small><h3>Downtown Branch</h3></div><span class="live"><i></i> Live</span></div>
+      <div class="position-label">YOUR POSITION</div>
+      <div class="position" id="position">#04</div>
+      <div class="ahead"><span id="ahead">3 people ahead</span><span id="percent">68%</span></div>
+      <div class="progress"><div id="progress" style="width:68%"></div></div>
+      <div class="wait"><span>Estimated wait</span><strong id="wait">12 min</strong></div>
+      <button class="notify" onclick="notifyUser()">🔔 Notify Me When It's My Turn</button>
+    </div>
+    <div class="floating notification">🔔 <span><b>Almost your turn!</b><small>You're next in line.</small></span></div>
+    <div class="ticket"><small>DIGITAL TICKET</small><b>A-104</b></div>
+  </div>
+</header>
+
+<section id="solutions" class="section">
+  <div class="section-title"><div class="badge">THE PROBLEM → THE SOLUTION</div><h2>Queues shouldn't feel like a <span>waiting room.</span></h2><p>Replace physical lines with a simple digital experience that works for everyone.</p></div>
+  <div class="compare">
+    <div class="panel old"><h3>✕ The Old Way</h3><ul><li>Long lines and unpredictable waits</li><li>Crowded waiting areas</li><li>No real-time updates</li><li>Manual queue management</li></ul></div>
+    <div class="panel new"><h3>✓ The QFlow Way</h3><ul><li>Join from anywhere with a QR code</li><li>Track your live position</li><li>Automatic turn notifications</li><li>Serve customers faster</li></ul></div>
+  </div>
+  <div class="stats"><div><b>40%</b><span>Less waiting</span></div><div><b>3×</b><span>Faster customer flow</span></div><div><b>24/7</b><span>Digital access</span></div></div>
+</section>
+
+<section id="how" class="section dark-section">
+  <div class="section-title"><div class="badge">SIMPLE BY DESIGN</div><h2>How <span>QFlow</span> works</h2><p>Three simple steps from joining the queue to being served.</p></div>
+  <div class="steps">
+    <div class="step"><em>01</em><div class="step-icon">📱</div><h3>Join the Queue</h3><p>Scan a QR code or open the digital link. Enter your name and get your ticket instantly.</p></div>
+    <div class="step"><em>02</em><div class="step-icon">📊</div><h3>Track Your Place</h3><p>See your position and estimated waiting time in real time without standing in line.</p></div>
+    <div class="step"><em>03</em><div class="step-icon">🔔</div><h3>Get Notified</h3><p>Receive a notification when your turn is approaching, then head to the service desk.</p></div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <div class="section-title"><div class="badge">BUILT FOR MODERN SERVICE</div><h2>Everything you need to <span>flow better.</span></h2></div>
+  <div class="features"><div><b>⚡ Real-time Queue</b><p>Live position updates keep customers informed.</p></div><div><b>🔔 Smart Notifications</b><p>Alert customers before their turn arrives.</p></div><div><b>📱 QR Ready</b><p>Let customers join instantly from their phone.</p></div><div><b>📈 Simple Management</b><p>Make queue handling faster and easier.</p></div></div>
+</section>
+
+<section id="pricing" class="section pricing">
+  <div class="section-title"><div class="badge">GET STARTED</div><h2>Ready to <span>flow?</span></h2><p>Try the digital queue demo now.</p><button class="btn btn-primary btn-lg" onclick="joinQueue()">Join Queue →</button></div>
+</section>
+
+<footer><div class="logo"><span class="logo-mark">Q</span><span>QFlow</span></div><p>Digital queue management made simple.</p></footer>
+
+<div class="modal" id="queueModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="badge">DIGITAL QUEUE</div><h2>Join the queue</h2><p>Downtown Branch · Customer service</p>
+    <label>Your name</label><input id="customerName" type="text" placeholder="Enter your name" maxlength="40" onkeydown="if(event.key==='Enter')createTicket()">
+    <button class="btn btn-primary btn-lg full" onclick="createTicket()">Get My Ticket</button>
+    <div id="ticketResult" class="result"></div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
